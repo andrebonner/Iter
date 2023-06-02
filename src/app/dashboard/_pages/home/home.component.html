@@ -1,0 +1,261 @@
+<div class="flex flex-col w-full space-y-3">
+  <h1 class="my-4 text-3xl w-full">Dashboard</h1>
+  <div class="flex w-full my-4 space-x-4">
+    <a
+      *ngIf="(user$ | async)?.role != 'patient'"
+      routerLink="patients"
+      class="flex flex-col bg-[#FAD7AC] border-black border-solid items-center p-4"
+    >
+      <h2 class="text-blue-300">Patients</h2>
+      <span class="text-blue-300">20</span> </a
+    ><a
+      *ngIf="(user$ | async)?.role != 'doctor'"
+      routerLink="appointments"
+      class="flex flex-col bg-[#FAD7AC] border-black border-solid items-center p-4"
+    >
+      <h2 class="text-blue-300">Appointments</h2>
+      <span class="text-blue-300">20</span> </a
+    ><a
+      *ngIf="(user$ | async)?.role != 'patient'"
+      routerLink="appointments"
+      class="flex flex-col bg-[#FAD7AC] border-black border-solid items-center p-4"
+    >
+      <h2 class="text-blue-300">Appointments</h2>
+      <span class="text-blue-300">120</span>
+    </a>
+  </div>
+  <div class="flex w-full bg-white my-4">
+    <table class="w-full">
+      <thead class="uppercase">
+        <tr
+          class="border-b border-solid border-b-gray-400 border-x-0 border-t-0"
+        >
+          <th scope="col" class="px-3 py-2">Doctor</th>
+
+          <th scope="col" class="px-3 py-2">Appt Date</th>
+          <th scope="col" class="px-3 py-2">Booking Date</th>
+          <th scope="col" class="px-3 py-2">Status</th>
+          <th scope="col" class="px-3 py-2">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr
+          class="border-b border-solid border-b-gray-400 border-x-0 border-t-0"
+        >
+          <th class="px-3 py-2">
+            <div class="flex space-x-2">
+              <img src="http://placehold.it/60x60" />
+              <div class="flex flex-col">
+                <h4 class="font-semibold">Dr. Peter Wills</h4>
+                <span class="">Ortho</span>
+              </div>
+            </div>
+          </th>
+          <td class="px-3 py-2">
+            <div class="flex flex-col items-center justify-center">
+              <span class="">14 Nov 2022</span
+              ><span class="text-blue-300">10:00 AM</span>
+            </div>
+          </td>
+          <td class="px-3 py-2">
+            <div class="flex flex-col items-center justify-center">
+              <span class="">10 Nov 2022</span>
+            </div>
+          </td>
+          <td class="px-3 py-2">
+            <div class="flex justify-center">
+              <div
+                class="bg-[#D5E8D4] px-2 text-[#82B366] rounded-full text-sm"
+              >
+                Confirm
+              </div>
+            </div>
+          </td>
+          <td class="px-3 py-2">
+            <div class="flex justify-center space-x-2">
+              <button
+                type="button"
+                class="bg-[#B1DDF0] p-2 text-[#10739E] border-none rounded-md hover:opacity-80"
+              >
+                <span nz-icon nzType="printer" nzTheme="outline"></span>
+                Print
+              </button>
+              <button
+                type="button"
+                class="bg-[#D5E8D4] p-2 text-[#82B366] border-none rounded-md hover:opacity-80"
+              >
+                <span nz-icon nzType="eye" nzTheme="outline"></span>
+                View
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr class="border-b border-gray-400">
+          <th class="px-3 py-2">
+            <div class="flex space-x-2">
+              <img src="http://placehold.it/60x60" />
+              <div class="flex flex-col">
+                <h4 class="font-semibold">Dr. Peter Wills</h4>
+                <span class="">Ortho</span>
+              </div>
+            </div>
+          </th>
+          <td class="px-3 py-2">
+            <div class="flex flex-col items-center justify-center">
+              <span class="">14 Nov 2022</span
+              ><span class="text-blue-300">10:00 AM</span>
+            </div>
+          </td>
+          <td class="px-3 py-2">
+            <div class="flex flex-col items-center justify-center">
+              <span class="">10 Nov 2022</span>
+            </div>
+          </td>
+          <td class="px-3 py-2">
+            <div class="flex justify-center">
+              <div
+                class="bg-[#F8CECC] px-2 text-[#B85450] rounded-full text-sm"
+              >
+                Cancelled
+              </div>
+            </div>
+          </td>
+          <td class="px-3 py-2">
+            <div class="flex justify-center space-x-2">
+              <button
+                type="button"
+                class="bg-[#B1DDF0] p-2 text-[#10739E] border-none rounded-md hover:opacity-80"
+              >
+                <span nz-icon nzType="printer" nzTheme="outline"></span>
+                Print
+              </button>
+              <button
+                type="button"
+                class="bg-[#D5E8D4] p-2 text-[#82B366] border-none rounded-md hover:opacity-80"
+              >
+                <span nz-icon nzType="eye" nzTheme="outline"></span>
+                View
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flex w-full space-x-2" *ngIf="(user$ | async)?.role != 'patient'">
+    <div class="w-1/2">
+      <div class="flex w-full bg-white my-4">
+        <table class="w-full">
+          <tbody class="">
+            <tr
+              class="border-b border-solid border-b-gray-400 border-x-0 border-t-0"
+            >
+              <td class="px-3 py-2">
+                <div class="flex space-x-2">
+                  <img src="http://placehold.it/60x60" />
+                  <div class="flex flex-col">
+                    <h4 class="font-semibold">Deter Wills</h4>
+                    <span class="">Doc # 001</span>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3 py-2">
+                <span class="text-[#00CC00] font-semibold">Ongoing</span>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-solid border-b-gray-400 border-x-0 border-t-0"
+            >
+              <td class="px-3 py-2">
+                <div class="flex space-x-2">
+                  <img src="http://placehold.it/60x60" />
+                  <div class="flex flex-col">
+                    <h4 class="font-semibold">Peter Dills</h4>
+                    <span class="">Doc # 002</span>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3 py-2">
+                <span class="text-black">10:00</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="w-1/2">
+      <div class="flex w-full bg-white my-4">
+        <table class="w-full">
+          <tbody class="">
+            <tr
+              class="border-b border-solid border-b-gray-400 border-x-0 border-t-0"
+            >
+              <td class="px-3 py-2">
+                <div class="flex space-x-2">
+                  <img src="http://placehold.it/60x60" />
+                  <div class="flex flex-col">
+                    <h4 class="font-semibold">Deter Wills</h4>
+                    <span class="">Doc # 001</span>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3 py-2">
+                <button
+                  type="button"
+                  class="bg-[#008CFF] text-white rounded-md outline-none border-none px-3 py-1 hover:opacity-80"
+                >
+                  <span nz-icon nzType="eye" nzTheme="outline"></span>
+                  View
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-solid border-b-gray-400 border-x-0 border-t-0"
+            >
+              <td class="px-3 py-2">
+                <div class="flex space-x-2">
+                  <img src="http://placehold.it/60x60" />
+                  <div class="flex flex-col">
+                    <h4 class="font-semibold">Swanya Bred</h4>
+                    <span class="">Doc # 002</span>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3 py-2">
+                <button
+                  type="button"
+                  class="bg-[#008CFF] text-white rounded-md outline-none border-none px-3 py-1 hover:opacity-80"
+                >
+                  <span nz-icon nzType="eye" nzTheme="outline"></span>
+                  View
+                </button>
+              </td>
+            </tr>
+            <tr
+              class="border-b border-solid border-b-gray-400 border-x-0 border-t-0"
+            >
+              <td class="px-3 py-2">
+                <div class="flex space-x-2">
+                  <img src="http://placehold.it/60x60" />
+                  <div class="flex flex-col">
+                    <h4 class="font-semibold">Peter Dills</h4>
+                    <span class="">Doc # 003</span>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3 py-2">
+                <button
+                  type="button"
+                  class="bg-[#008CFF] text-white rounded-md outline-none border-none px-3 py-1 hover:opacity-80"
+                >
+                  <span nz-icon nzType="eye" nzTheme="outline"></span>
+                  View
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,214 @@
+<section
+  class="flex flex-col md:flex-row py-6 mx-auto w-11/12 space-y-4 md:space-x-4 md:space-y-0"
+>
+  <aside
+    class="flex flex-col w-5/6 md:w-3/12 mx-auto md:mx-0 px-2 py-4 bg-white border-solid border-gray-300 border"
+  >
+    <form
+      action="search"
+      method="post"
+      (ngSubmit)="doSearch(searchForm)"
+      #searchForm="ngForm"
+      class="w-3/4 mx-auto"
+    >
+      <h2 class="text-lg">Search Filter</h2>
+      <input
+        type="text"
+        placeholder="Search"
+        class="rounded-md my-2 border-gray-200 border-solid ring-0 focus:ring-0 p-2 w-full"
+        name="text"
+        value="{{ search }}"
+      />
+      <h3 class="">Date</h3>
+
+      <input
+        type="date"
+        placeholder="Select Date"
+        class="rounded-md my-1 border-gray-200 border-solid ring-0 focus:ring-0 p-2 w-full"
+        name="date"
+        value="{{ date }}"
+      />
+      <h3 class="my-2">Gender</h3>
+      <ul class="max-w-md space-y-1 list-none list-outside px-0">
+        <li class="">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="gender"
+              class=""
+              value="male"
+              [checked]="gender.indexOf('male') > -1"
+            />
+            Male Doctor</label
+          >
+        </li>
+        <li class="">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="gender"
+              class=""
+              value="female"
+              [checked]="gender.indexOf('female') > -1"
+            />
+            Female Doctor</label
+          >
+        </li>
+        <li class="hidden">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="gender"
+              class=""
+              value="other"
+              [checked]="gender.indexOf('other') > -1"
+            />
+            Other</label
+          >
+        </li>
+      </ul>
+      <h3 class="">Select Specialties</h3>
+      <ul class="max-w-md space-y-1 list-none list-inside px-0">
+        <li class="">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="specialities"
+              class=""
+              value="urology"
+              [checked]="specialities.indexOf('urology') > -1"
+            />
+            Urology</label
+          >
+        </li>
+        <li class="">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="specialities"
+              class=""
+              value="neurology"
+              [checked]="specialities.indexOf('neurology') > -1"
+            />
+            Neurology</label
+          >
+        </li>
+        <li class="">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="specialities"
+              class=""
+              value="dental"
+              [checked]="specialities.indexOf('dental') > -1"
+            />
+            Dental</label
+          >
+        </li>
+        <li class="">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="specialities"
+              class=""
+              value="orthopedic"
+              [checked]="specialities.indexOf('orthopedic') > -1"
+            />
+            Orthopedic</label
+          >
+        </li>
+        <li class="">
+          <label class="form-control flex items-center">
+            <input
+              type="checkbox"
+              name="specialities"
+              class=""
+              value="cardiologist"
+              [checked]="specialities.indexOf('cardiologist') > -1"
+            />
+            Cardiologist</label
+          >
+        </li>
+      </ul>
+      <button
+        type="submit"
+        class="bg-[#e05d00] py-2 text-white text-lg font-semibold border border-[#e05d00] border-solid hover:bg-[#e04c00] cursor-pointer rounded w-full"
+      >
+        Search
+      </button>
+    </form>
+  </aside>
+  <article class="flex flex-col w-5/6 md:w-9/12 mx-auto md:mx-0 mt-2 md:mt-0">
+    <div
+      class="card bg-white rounded py-4 border border-gray-300 border-solid w-full"
+    >
+      <div
+        class="flex flex-col md:flex-row items-center w-5/6 md:w-11/12 mx-auto"
+      >
+        <i class="w-5/6 mx-auto md:mx-0 md:w-1/6 not-italic">
+          <a href="#" class="">
+            <svg
+              viewBox="0 0 24 24"
+              class="w-32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16.5 7.063C16.5 10.258 14.57 13 12 13c-2.572 0-4.5-2.742-4.5-5.938C7.5 3.868 9.16 2 12 2s4.5 1.867 4.5 5.063zM4.102 20.142C4.487 20.6 6.145 22 12 22c5.855 0 7.512-1.4 7.898-1.857a.416.416 0 0 0 .09-.317C19.9 18.944 19.106 15 12 15s-7.9 3.944-7.989 4.826a.416.416 0 0 0 .091.317z"
+                  fill="#000000"
+                ></path>
+              </g>
+            </svg>
+          </a>
+        </i>
+        <div class="w-full md:w-4/6 flex flex-col items-center md:items-start">
+          <a href="#" class="text-[#008CFF] text-lg font-semibold"
+            >Dr. Shawn Medicore</a
+          >
+          <i class="not-italic"
+            >MDS - Periodontology and Oral Impantology, BDS</i
+          >
+          <i class="not-italic"
+            ><span class="font-semibold">Dentist</span>&nbsp;&nbsp;Portmore, St.
+            Catherine</i
+          >
+          <i class="not-italic py-4"
+            ><button
+              class="rounded py-[2px] border-2 border-[#e05d00] bg-transparent shadow-none ring-0 border-solid text-xs"
+            >
+              Dental Filings</button
+            >&nbsp;<button
+              class="rounded py-[2px] border-2 border-[#e05d00] bg-transparent shadow-none ring-0 border-solid text-xs"
+            >
+              Whitening
+            </button></i
+          >
+        </div>
+
+        <div class="w-full md:w-1/6 flex flex-col justify-center">
+          <a
+            routerLink="/doctor-profile"
+            class="w-full uppercase text-center my-2 py-2 rounded border-2 border-[#e05d00] bg-transparent shadow-none ring-0 border-solid text-[#e05d00] hover:bg-[#e05d00] hover:text-white font-semibold cursor-pointer"
+          >
+            View Profile
+          </a>
+          <a
+            routerLink="/booking"
+            class="w-full uppercase text-center my-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 text-white border-2 border-[#e05d00] border-solid font-semibold hover:text-white cursor-pointer"
+          >
+            Book Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

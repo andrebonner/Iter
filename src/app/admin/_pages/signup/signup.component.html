@@ -1,0 +1,44 @@
+<h1 class="text-xl">Sign Up</h1>
+<p class="">sign to continue</p>
+<form
+  action="/otp"
+  method="post"
+  (ngSubmit)="doSignup(signupForm)"
+  #signupForm="ngForm"
+  class="w-full space-y-2"
+>
+  <div class="w-full">
+    <input
+      type="text"
+      class="w-full border border-solid p-2 outline-none"
+      placeholder="Email"
+    />
+  </div>
+  <div class="w-full">
+    <input
+      type="password"
+      class="w-full border border-solid p-2 outline-none"
+      placeholder="Password"
+    />
+  </div>
+  <div class="w-full">
+    <input
+      type="password"
+      class="w-full border border-solid p-2 outline-none"
+      placeholder="Confirm Password"
+    />
+  </div>
+  <div class="w-full">
+    <button
+      type="submit"
+      class="text-lg my-2 px-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 border-none outline-none text-white w-full"
+    >
+      Sign Up
+    </button>
+  </div>
+  <div class="w-full">
+    <p class="text-center">
+      Do you have an account? <a routerLink="/admin/login">Login</a>
+    </p>
+  </div>
+</form>

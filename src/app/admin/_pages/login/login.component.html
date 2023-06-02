@@ -1,0 +1,43 @@
+<h1 class="text-xl">Login</h1>
+<p class="">login to your account to continue</p>
+<form
+  action="/otp"
+  method="post"
+  (ngSubmit)="doLogin(loginForm)"
+  #loginForm="ngForm"
+  class="w-full space-y-2"
+>
+  <div class="w-full">
+    <input
+      type="text"
+      class="w-full border border-solid p-2 outline-none"
+      placeholder="Username"
+    />
+  </div>
+  <div class="w-full">
+    <input
+      type="password"
+      class="w-full border border-solid p-2 outline-none"
+      placeholder="Password"
+    />
+  </div>
+  <div class="flex w-full justify-between">
+    <label class="flex justify-between"
+      ><input type="checkbox" class="" />Remember me</label
+    >
+    <a routerLink="/admin/forgot-password">Forgot Password ?</a>
+  </div>
+  <div class="w-full">
+    <button
+      type="submit"
+      class="text-lg my-2 px-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 border-none outline-none text-white w-full"
+    >
+      Login
+    </button>
+  </div>
+  <div class="w-full">
+    <p class="text-center">
+      Don't have an account? <a routerLink="/admin/signup">Sign Up</a>
+    </p>
+  </div>
+</form>

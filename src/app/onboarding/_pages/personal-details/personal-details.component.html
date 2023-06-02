@@ -1,0 +1,198 @@
+<div class="w-full">
+  <div class="card bg-white rounded py-4 border border-gray-300 border-solid">
+    <form
+      action="{{
+        (user$ | async)?.role == 'patient'
+          ? 'onboarding/select-members'
+          : 'onboarding/doctor-verification'
+      }}"
+      method="post"
+      (ngSubmit)="doPersonalDetails(selectMembersForm)"
+      #selectMembersForm="ngForm"
+    >
+      <div class="flex flex-col w-5/6 mx-auto">
+        <div
+          *ngIf="isPatient(); then personalDetails; else doctorDetails"
+        ></div>
+        <ng-template #personalDetails>
+          <h1 class="text-3xl">
+            What are your personal details?
+            <span class="text-[#ff0000]">*</span>
+          </h1>
+          <p class="text-lg py-2">Please provide your personal information</p>
+          <div class="w-full my-2 flex space-x-2">
+            <div class="w-1/2">
+              <button
+                type="button"
+                class="w-full border-gray-300 border-solid bg-white hover:bg-gray-100 shadow-md p-2"
+              >
+                Male
+              </button>
+            </div>
+            <div class="w-1/2">
+              <button
+                type="button"
+                class="w-full border-gray-300 border-solid bg-white hover:bg-gray-100 shadow-md p-2"
+              >
+                Female
+              </button>
+            </div>
+          </div>
+          <div class="flex w-full my-2 space-x-2">
+            <div class="w-5/6">
+              <input
+                type="text"
+                class="w-full border-gray-300 border-solid p-2"
+                placeholder="Your height"
+              />
+            </div>
+            <div class="w-1/6">
+              <select class="w-full border-gray-300 border-solid p-2">
+                <option>CM</option>
+                <option>IN</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex w-full my-2 space-x-2">
+            <div class="w-5/6">
+              <input
+                type="text"
+                class="w-full border-gray-300 border-solid p-2"
+                placeholder="Your weight"
+              />
+            </div>
+            <div class="w-1/6">
+              <select class="w-full border-gray-300 border-solid p-2">
+                <option>KG</option>
+                <option>LB</option>
+              </select>
+            </div>
+          </div>
+          <div class="w-full my-2">
+            <input
+              type="number"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="Age"
+            />
+          </div>
+          <div class="w-full my-2">
+            <input
+              type="text"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="Blood Type"
+            />
+          </div>
+          <div class="w-full my-2">
+            <input
+              type="text"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="Blood Pressure"
+            />
+          </div>
+          <div class="w-full my-2">
+            <input
+              type="text"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="Glucose Level"
+            />
+          </div>
+          <div class="w-full my-2">
+            <input
+              type="text"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="Allergies"
+            />
+          </div>
+          <div class="flex w-full my-2 space-x-2">
+            <label class="w-5/6">Are you Pregnant</label>
+            <input type="checkbox" class="border-gray-300 border-solid p-2" />
+          </div>
+          <div class="flex w-full my-2 space-x-2">
+            <label class="w-5/6">Do you have any pre-existing conditions</label>
+            <input type="checkbox" class="border-gray-300 border-solid p-2" />
+          </div>
+          <div class="flex w-full my-2 space-x-2">
+            <label class="w-5/6">Are you currently taking any medication</label>
+            <input type="checkbox" class="border-gray-300 border-solid p-2" />
+          </div>
+        </ng-template>
+        <ng-template #doctorDetails>
+          <h1 class="text-3xl">
+            Personalize Your Profile
+            <span class="text-[#ff0000]">*</span>
+          </h1>
+          <div class="flex flex-col w-full my-2">
+            <div class="flex border-black border-dashed h-40 w-36">
+              <div class="flex flex-col w-full items-center justify-center m-4">
+                <span nz-icon nzType="camera" nzTheme="outline"></span>
+                <span>Upload Photo</span>
+              </div>
+            </div>
+            <p class="my-2 text-gray-300">
+              Logo Should be minimum 152 * 152 Supported File format JPG,PNG,SVG
+            </p>
+          </div>
+          <div class="flex w-full my-2">
+            <input
+              type="text"
+              placeholder="Legal Name"
+              class="w-full border-gray-300 border-solid p-2"
+            />
+          </div>
+          <div class="flex w-full my-2 space-x-2">
+            <div class="w-1/2">
+              <input
+                type="text"
+                placeholder="Gender"
+                class="w-full border-gray-300 border-solid p-2"
+              />
+            </div>
+            <div class="w-1/2">
+              <input
+                type="text"
+                placeholder="DD/MM/YYYY"
+                class="w-full border-gray-300 border-solid p-2"
+              />
+            </div>
+          </div>
+          <div class="flex w-full my-2">
+            <input
+              type="text"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="Address"
+            />
+          </div>
+          <div class="flex w-full my-2 space-x-2">
+            <div class="w-1/2">
+              <select class="w-full border-gray-300 border-solid p-2">
+                <option value="" disabled selected>Select City</option>
+                <option value="KIN">Kingston</option>
+                <option value="MBJ">Montego Bay</option>
+              </select>
+            </div>
+            <div class="w-1/2">
+              <select class="w-full border-gray-300 border-solid p-2">
+                <option value="" disabled selected>Select State</option>
+                <option value="KIN">Kingston</option>
+                <option value="STJ">St. James</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex w-full my-2">
+            <textarea
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="About you"
+              row="5"
+            ></textarea>
+          </div>
+        </ng-template>
+        <button
+          type="submit"
+          class="w-1/2 text-center text-lg my-2 px-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 text-white hover:text-white border-2 border-[#e05d00] hover:border-[#d14c11] border-solid font-semibold cursor-pointer"
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

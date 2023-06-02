@@ -1,0 +1,107 @@
+<div class="w-full">
+  <div class="card bg-white rounded py-4 border border-gray-300 border-solid">
+    <form
+      action="dashboard"
+      method="post"
+      (ngSubmit)="doPreferences(preferencesForm)"
+      #preferencesForm="ngForm"
+    >
+      <div class="flex flex-col w-5/6 mx-auto">
+        <h1 class="text-3xl">
+          Preferences <span class="text-[#ff0000]">*</span>
+        </h1>
+        <p class="text-lg py-2">
+          This can be edited later on from the account settings
+        </p>
+
+        <div class="w-full my-2">
+          <input
+            type="date"
+            class="w-full border-gray-300 border-solid p-2"
+            placeholder="DD/MM/YYYY"
+          />
+        </div>
+        <div class="flex w-full my-2 space-x-2">
+          <div class="w-1/2">
+            <input
+              type="time"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="Start Time"
+            />
+          </div>
+          <div class="w-1/2">
+            <input
+              type="time"
+              class="w-full border-gray-300 border-solid p-2"
+              placeholder="End Time"
+            />
+          </div>
+        </div>
+        <div class="w-full my-2">
+          <div class="flex w-1/2 space-x-1">
+            <div
+              class="flex w-12 bg-gray-200 border-gray-300 border-solid p-1 rounded-full"
+            >
+              <div class="w-4 h-4 bg-[#2D7600] rounded-full"></div>
+            </div>
+            <label class="text-[#2D7600]">Repeat Availablity</label>
+          </div>
+        </div>
+        <div class="w-full my-2">
+          <div class="flex space-x-2">
+            <div
+              class="flex items-center justify-center p-4 border-gray-300 border-solid w-8 h-8"
+            >
+              <span>M</span>
+            </div>
+            <div
+              class="flex items-center justify-center p-4 border-gray-300 border-solid w-8 h-8"
+            >
+              <span>T</span>
+            </div>
+            <div
+              class="flex items-center justify-center p-4 border-gray-300 border-solid w-8 h-8"
+            >
+              <span>W</span>
+            </div>
+            <div
+              class="flex items-center justify-center p-4 border-gray-300 border-solid w-8 h-8"
+            >
+              <span>T</span>
+            </div>
+            <div
+              class="flex items-center justify-center p-4 border-gray-300 border-solid w-8 h-8"
+            >
+              <span>F</span>
+            </div>
+            <div
+              class="flex items-center justify-center p-4 border-gray-300 border-solid w-8 h-8"
+            >
+              <span>S</span>
+            </div>
+            <div
+              class="flex items-center justify-center p-4 border-gray-300 border-solid w-8 h-8"
+            >
+              <span>S</span>
+            </div>
+          </div>
+        </div>
+        <div class="w-full my-2">
+          <input
+            name=""
+            id=""
+            type="date"
+            placeholder="DD/MM/YYYY"
+            class="w-full border-gray-300 border-solid p-2"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-1/2 text-center text-lg my-2 px-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 text-white hover:text-white border-2 border-[#e05d00] hover:border-[#d14c11] border-solid font-semibold cursor-pointer"
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

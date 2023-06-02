@@ -1,0 +1,71 @@
+<header
+  class="navbar shadow-lg bg-white flex flex-col md:flex-row w-full border-b-gray-100 border-solid border-x-0 border-t-0"
+>
+  <div class="flex w-full justify-between">
+    <div class="flex space-x-3">
+      <a routerLink="/" class="flex items-center p-3 font-bold text-black w-1/2"
+        ><img src="../../assets/logo.png" class="h-16" alt="logo" />&nbsp;<span
+          class="sr-only md:not-sr-only"
+          >Appointify</span
+        ></a
+      >
+      <div class="flex items-center">
+        <input
+          type="text"
+          class="border-none outline-none"
+          placeholder="Type search term here..."
+        /><span nz-icon nzType="search" nzTheme="outline"></span>
+      </div>
+    </div>
+    <div class="flex space-x-3 px-3">
+      <div class="flex items-center space-x-1">
+        <label class="">Light Mode</label>
+        <div class="bg-gray-300 rounded-full w-14 p-1">
+          <div class="rounded-full w-4 h-4 bg-white"></div>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <a href="javascript:void();">
+          <img src="http://placehold.it/60x60" class="w-16 h-16" alt="" /> </a
+        ><span nz-icon nzType="caret-down" nzTheme="outline"></span>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="bg-gray-100 h-screen">
+  <section class="flex flex-col md:flex-row w-full h-full space-x-4">
+    <article
+      class="sidebar flex flex-col items-center bg-white shadow-lg w-1/6 h-full py-4 border-l-0 border-solid border-y-0 border-r-gray-100"
+    >
+      <div class="menu flex flex-col my-5 space-y-3">
+        <a routerLink="/admin" class="text-black hover:text-blue-400"
+          >Dashboard</a
+        >
+        <a
+          routerLink="/admin/appointments"
+          class="text-black hover:text-blue-400"
+          >Appointments</a
+        >
+        <a
+          routerLink="/admin/specialties"
+          class="text-black hover:text-blue-400"
+          >Specialties</a
+        >
+        <a routerLink="/admin/doctors" class="text-black hover:text-blue-400"
+          >Doctors</a
+        >
+        <a routerLink="/admin/patients" class="text-black hover:text-blue-400"
+          >Patients</a
+        >
+        <a routerLink="/admin/settings" class="text-black hover:text-blue-400"
+          >Settings</a
+        >
+      </div>
+    </article>
+    <article class="flex flex-col w-full py-5">
+      <div class="w-11/12 mx-auto overflow-y-auto">
+        <router-outlet></router-outlet>
+      </div>
+    </article>
+  </section>
+</main>

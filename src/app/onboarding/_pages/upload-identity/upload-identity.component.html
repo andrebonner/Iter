@@ -1,0 +1,50 @@
+<div class="w-full">
+  <div class="card bg-white rounded py-4 border border-gray-300 border-solid">
+    <form
+      action="onboarding/personal-details"
+      method="post"
+      (ngSubmit)="doUploadIdentity(identityForm)"
+      #identityForm="ngForm"
+    >
+      <div class="flex flex-col w-5/6 mx-auto">
+        <h1 class="text-3xl">
+          Upload identification <span class="text-[#ff0000]">*</span>
+        </h1>
+        <p class="text-lg py-2">
+          We need to determine if an identity document is authentic and belongs
+          to you. You just need to go through some steps which will help us to
+          build a secure system together
+        </p>
+        <div class="w-full my-2">
+          <select name="" id="" class="w-full border-gray-300 border-solid p-2">
+            <option value="" selected disabled>Select Document Type</option>
+            <option value="">PDF</option>
+            <option value="">TXT</option>
+            <option value="">JPEC</option>
+          </select>
+        </div>
+        <div class="w-full my-2">
+          <input
+            type="text"
+            class="w-full border-gray-300 border-solid p-2"
+            placeholder="Document Number"
+          />
+        </div>
+        <div class="w-full my-2">
+          <div class="w-full border-gray-300 border-dashed p-2 bg-gray-200">
+            <div class="flex flex-col items-center m-4">
+              <span nz-icon nzType="upload" nzTheme="outline"></span>
+              <span>Upload Document</span>
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="w-1/2 text-center text-lg my-2 px-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 text-white hover:text-white border-2 border-[#e05d00] hover:border-[#d14c11] border-solid font-semibold cursor-pointer"
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

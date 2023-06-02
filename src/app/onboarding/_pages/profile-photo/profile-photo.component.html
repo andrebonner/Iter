@@ -1,0 +1,49 @@
+<div class="w-full">
+  <div class="card bg-white rounded py-4 border border-gray-300 border-solid">
+    <form
+      action="onboarding/personal-details"
+      method="post"
+      (ngSubmit)="doPhotoUpload(profilePhotoForm)"
+      #profilePhotoForm="ngForm"
+    >
+      <div class="flex flex-col w-5/6 mx-auto">
+        <h1 class="text-3xl">Upload Profile Photo</h1>
+        <p class="text-lg py-2">Add a profile photo to your account</p>
+        <div class="w-full my-2">
+          <div
+            class="frame flex bg-gray-100 border border-solid border-gray-300 w-40 h-40 mx-auto"
+          >
+            <img
+              src="http://placehold.it/300x300"
+              class="w-32 h-full flex-items-center justify-center"
+            />
+          </div>
+        </div>
+        <div class="w-full my-2">
+          <button
+            type="button"
+            class="w-full border-gray-300 border-solid bg-white hover:bg-gray-100 shadow-md p-2"
+          >
+            <span nz-icon nzType="upload" nzTheme="outline"></span>
+            Upload image
+          </button>
+        </div>
+        <div class="w-full my-2">
+          <button
+            type="button"
+            class="w-full border-gray-300 border-solid bg-white hover:bg-gray-100 shadow-md p-2"
+          >
+            <span nz-icon nzType="camera" nzTheme="outline"></span>
+            Take a photo
+          </button>
+        </div>
+        <button
+          type="submit"
+          class="w-1/2 text-center text-lg my-2 px-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 text-white hover:text-white border-2 border-[#e05d00] hover:border-[#d14c11] border-solid font-semibold cursor-pointer"
+        >
+          Continue
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

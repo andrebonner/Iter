@@ -1,0 +1,150 @@
+<div class="flex flex-col mx-auto w-11/12">
+  <div class="flex flex-col mx-auto w-6/12 py-8">
+    <h1 class="text-center" (click)="increment()">
+      Search Doctor, Make an Appointment
+    </h1>
+    <h3 class="text-center" (click)="decrement()">Discover the best doctors</h3>
+    <div>Current count: {{ count$ | async }}</div>
+    <form
+      action="/search"
+      method="post"
+      (ngSubmit)="search(searchForm)"
+      #searchForm="ngForm"
+    >
+      <div class="flex space-x-2 relative">
+        <input
+          type="text"
+          name="text"
+          [(ngModel)]="searchValue"
+          class="border-gray-400 w-full p-2"
+          required
+          placeholder="Search Doctor"
+        />
+        <button
+          type="submit"
+          class="hidden md:block border-none bg-[#0083E0] text-white px-4"
+        >
+          <span nz-icon nzType="search" nzTheme="outline"></span>
+        </button>
+      </div>
+      <p class="text-gray-400">E.g. Dr.Dino</p>
+      <button
+        type="submit"
+        class="md:hidden border-none bg-[#0083E0] text-white px-4 w-full"
+      >
+        <span nz-icon nzType="search" nzTheme="outline"></span>
+      </button>
+    </form>
+  </div>
+  <nz-divider></nz-divider>
+  <div class="flex flex-col mx-auto w-6/12 py-8">
+    <h1 class="text-center">Clinic and Specialties</h1>
+    <h3 class="text-center">
+      Choose from the available clinics or specialties
+    </h3>
+    <div class="flex flex-col md:flex-row w-full">
+      <div class="flex flex-wrap items-center space-x-8 mx-auto w-5/8 my-2">
+        <figure class="rounded-full border shadow p-2 w-16 h-16">
+          <svg
+            fill="#000000"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5,22H19a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V19A3,3,0,0,0,5,22Zm14-2H5a1,1,0,0,1-1-1V13H8a1,1,0,0,0,.928-.628L10,9.692l3.071,7.68a1,1,0,0,0,1.858,0L16.677,13H20v6A1,1,0,0,1,19,20ZM5,4H19a1,1,0,0,1,1,1v6H16a1,1,0,0,0-.929.629L14,14.307,10.929,6.628a1,1,0,0,0-1.857,0L7.323,11H4V5A1,1,0,0,1,5,4Z"
+              ></path>
+            </g>
+          </svg>
+          <figcaption class="py-2">Dental</figcaption>
+        </figure>
+        <figure class="rounded-full border shadow p-2 w-16 h-16">
+          <svg
+            fill="#000000"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5,22H19a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V19A3,3,0,0,0,5,22Zm14-2H5a1,1,0,0,1-1-1V13H8a1,1,0,0,0,.928-.628L10,9.692l3.071,7.68a1,1,0,0,0,1.858,0L16.677,13H20v6A1,1,0,0,1,19,20ZM5,4H19a1,1,0,0,1,1,1v6H16a1,1,0,0,0-.929.629L14,14.307,10.929,6.628a1,1,0,0,0-1.857,0L7.323,11H4V5A1,1,0,0,1,5,4Z"
+              ></path>
+            </g>
+          </svg>
+          <figcaption class="py-2">Urology</figcaption>
+        </figure>
+        <figure class="rounded-full border shadow p-2 w-16 h-16">
+          <svg
+            fill="#000000"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5,22H19a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V19A3,3,0,0,0,5,22Zm14-2H5a1,1,0,0,1-1-1V13H8a1,1,0,0,0,.928-.628L10,9.692l3.071,7.68a1,1,0,0,0,1.858,0L16.677,13H20v6A1,1,0,0,1,19,20ZM5,4H19a1,1,0,0,1,1,1v6H16a1,1,0,0,0-.929.629L14,14.307,10.929,6.628a1,1,0,0,0-1.857,0L7.323,11H4V5A1,1,0,0,1,5,4Z"
+              ></path>
+            </g>
+          </svg>
+          <figcaption class="py-2">Neurology</figcaption>
+        </figure>
+        <figure class="rounded-full border shadow p-2 w-16 h-16">
+          <svg
+            fill="#000000"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5,22H19a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V19A3,3,0,0,0,5,22Zm14-2H5a1,1,0,0,1-1-1V13H8a1,1,0,0,0,.928-.628L10,9.692l3.071,7.68a1,1,0,0,0,1.858,0L16.677,13H20v6A1,1,0,0,1,19,20ZM5,4H19a1,1,0,0,1,1,1v6H16a1,1,0,0,0-.929.629L14,14.307,10.929,6.628a1,1,0,0,0-1.857,0L7.323,11H4V5A1,1,0,0,1,5,4Z"
+              ></path>
+            </g>
+          </svg>
+          <figcaption class="py-2">Orthopedic</figcaption>
+        </figure>
+        <figure class="rounded-full border shadow p-2 w-16 h-16">
+          <svg
+            fill="#000000"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5,22H19a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V19A3,3,0,0,0,5,22Zm14-2H5a1,1,0,0,1-1-1V13H8a1,1,0,0,0,.928-.628L10,9.692l3.071,7.68a1,1,0,0,0,1.858,0L16.677,13H20v6A1,1,0,0,1,19,20ZM5,4H19a1,1,0,0,1,1,1v6H16a1,1,0,0,0-.929.629L14,14.307,10.929,6.628a1,1,0,0,0-1.857,0L7.323,11H4V5A1,1,0,0,1,5,4Z"
+              ></path>
+            </g>
+          </svg>
+          <figcaption class="py-2">Cardiologist</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>

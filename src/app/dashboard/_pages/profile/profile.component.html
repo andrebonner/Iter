@@ -1,0 +1,541 @@
+<div class="flex flex-col w-full space-y-3">
+  <div class="w-full flex justify-between">
+    <h1 class="my-4 text-3xl">Profile</h1>
+  </div>
+  <div class="flex w-full my-4">
+    <form
+      action="/save-profile"
+      method="post"
+      (ngSubmit)="saveProfile(profileForm)"
+      #profileForm="ngForm"
+      class="flex flex-col w-full"
+    >
+      <div
+        *ngIf="(user$ | async)?.role == 'patient'"
+        class="bg-white w-full p-5 space-y-3"
+      >
+        <div class="flex w-full space-x-3 items-center">
+          <div class="frame border border-solid border-black w-32 h-32">
+            <img src="http://placehold.it/300x300" class="w-full" />
+          </div>
+          <div class="flex flex-col space-y-2">
+            <div class="w-full">
+              <button
+                type="button"
+                class="bg-[#1BA1E2] text-white p-2 border-none"
+              >
+                <span nz-icon nzType="upload" nzTheme="outline"></span>
+                Upload Photo
+              </button>
+            </div>
+            <span class="text-gray-300"
+              >Allow JPG, GIF or PNG. Max size of 2MB</span
+            >
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">First Name</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="First Name"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">Last Name</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Last Name"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">Date of Birth</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Date of Birth"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">Blood Group</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Blood Group"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">Email ID</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Email ID"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">Mobile</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Mobile"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-full">
+            <label class="">Address</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Address"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">City</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="City"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">State</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="State"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">Zip Code</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Zip Code"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">Country</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Country"
+            />
+          </div>
+        </div>
+        <div class="flex w-full">
+          <button
+            type="submit"
+            class="p-3 bg-[#E05D00] text-white font-semibold rounded-md border-none shadow"
+          >
+            <span nz-icon nzType="save" nzTheme="outline"></span>
+            Save Changes
+          </button>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3"
+      >
+        <h1 class="">Basic Information</h1>
+        <div class="flex w-full space-x-3 items-center">
+          <div class="frame border border-solid border-black w-32 h-32">
+            <img src="http://placehold.it/300x300" class="w-full" />
+          </div>
+          <div class="flex flex-col space-y-2">
+            <div class="w-full">
+              <button
+                type="button"
+                class="bg-[#1BA1E2] text-white p-2 border-none"
+              >
+                <span nz-icon nzType="upload" nzTheme="outline"></span>
+                Upload Photo
+              </button>
+            </div>
+            <span class="text-gray-300"
+              >Allow JPG, GIF or PNG. Max size of 2MB</span
+            >
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class=""
+              >Username &nbsp; <span class="text-red-300">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full bg-[#F5F5F5] border border-solid p-2"
+              placeholder="Username"
+              readonly
+              required
+            />
+          </div>
+          <div class="w-1/2">
+            <label class=""
+              >Email&nbsp; <span class="text-red-300">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full bg-[#F5F5F5] border border-solid p-2"
+              placeholder="Email"
+              readonly
+              required
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class=""
+              >First Name&nbsp; <span class="text-red-300">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="First Name"
+              required
+            />
+          </div>
+          <div class="w-1/2">
+            <label class=""
+              >Last Name&nbsp; <span class="text-red-300">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class=""
+              >Phone Number&nbsp; <span class="text-red-300">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+          <div class="w-1/2">
+            <label class=""
+              >Gender&nbsp; <span class="text-red-300">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Gender"
+              required
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class=""
+              >Date of Birth&nbsp; <span class="text-red-300">*</span></label
+            >
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Date of Birth"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">About Me</h1>
+        <div class="flex w-full space-x-2">
+          <div class="w-full">
+            <label class="">Biography</label>
+            <textarea
+              rows="5"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Biography"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">Contact Details</h1>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">Address Line 1</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Address"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">Address Line 2</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Address"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">City</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="City"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">State / Province</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="State"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/2">
+            <label class="">Country</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Country"
+            />
+          </div>
+          <div class="w-1/2">
+            <label class="">Zip Code</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Zip Code"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">Services and Specialization</h1>
+        <div class="flex w-full">
+          <div class="w-full">
+            <label class="">Services</label>
+            <div class="flex w-full border border-solid py-2 px-1">
+              <div class="px-2 bg-[#1BA1E2] text-white">Tooth Cleaning</div>
+              <input
+                type="text"
+                class="border-none outline-none"
+                placeholder="Enter Services"
+              />
+            </div>
+            <p class="">Note: Type & press enter to add new services</p>
+          </div>
+        </div>
+        <div class="flex w-full">
+          <div class="w-full">
+            <label class="">Specializations</label>
+            <div class="flex w-full border border-solid py-2 px-1">
+              <div class="px-2 bg-[#1BA1E2] text-white">Child Care</div>
+              <input
+                type="text"
+                class="border-none outline-none"
+                placeholder="Enter Specialization"
+              />
+            </div>
+            <p class="">Note: Type & press enter to add new specialization</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">Education</h1>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/3">
+            <label class="">Degree</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Degree"
+            />
+          </div>
+          <div class="w-1/3">
+            <label class="">College/University</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="College/University"
+            />
+          </div>
+          <div class="w-1/3">
+            <label class="">Year of Completion</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Year of Completion"
+            />
+          </div>
+        </div>
+        <div class="w-full">
+          <a href="#" class="">Add More</a>
+        </div>
+      </div>
+
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">Experiences</h1>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/3">
+            <label class="">Hospital Name</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Hospital Name"
+            />
+          </div>
+          <div class="w-1/3">
+            <label class="">From</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="From"
+            />
+          </div>
+          <div class="w-1/3">
+            <label class="">To</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="To"
+            />
+          </div>
+        </div>
+        <div class="flex w-full space-x-2">
+          <div class="w-1/3">
+            <label class="">Designation</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Designation"
+            />
+          </div>
+        </div>
+        <div class="w-full">
+          <a href="#" class="">Add More</a>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">Awards</h1>
+        <div class="flex w-full space-x-2">
+          <div class="w-2/3">
+            <label class="">Award</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Award"
+            />
+          </div>
+
+          <div class="w-1/3">
+            <label class="">Year of Award</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Year of Award"
+            />
+          </div>
+        </div>
+        <div class="w-full">
+          <a href="#" class="">Add More</a>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">Memberships</h1>
+        <div class="flex w-full space-x-2">
+          <div class="w-2/3">
+            <label class="">Memeberships</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Memebership"
+            />
+          </div>
+        </div>
+        <div class="w-full">
+          <a href="#" class="">Add More</a>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <h1 class="">Registrations</h1>
+        <div class="flex w-full space-x-2">
+          <div class="w-2/3">
+            <label class="">Registration</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Award"
+            />
+          </div>
+
+          <div class="w-1/3">
+            <label class="">Year of Registration</label>
+            <input
+              type="text"
+              class="w-full border border-solid p-2 outline-none"
+              placeholder="Year of Award"
+            />
+          </div>
+        </div>
+        <div class="w-full">
+          <a href="#" class="">Add More</a>
+        </div>
+      </div>
+      <div
+        *ngIf="(user$ | async)?.role == 'doctor'"
+        class="w-full bg-white p-5 space-y-3 my-4"
+      >
+        <div class="flex w-full">
+          <button
+            type="submit"
+            class="p-3 bg-[#E05D00] text-white font-semibold rounded-md border-none shadow"
+          >
+            <span nz-icon nzType="save" nzTheme="outline"></span>
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
