@@ -6,6 +6,7 @@
 :root {
   --form-control-color: rebeccapurple;
   --form-control-disabled: #959495;
+  --form-background: #fff;
 }
 
 *,
@@ -31,13 +32,13 @@
 }
 
 input[type="checkbox"] {
-  /* Add if not using autoprefixer */
+  // Add if not using autoprefixer
   -webkit-appearance: none;
-  /* Remove most all native input styles */
+  // Remove most all native input styles
   appearance: none;
-  /* For iOS < 15 */
+  // For iOS < 15
   background-color: var(--form-background);
-  /* Not removed via appearance */
+  // Not removed via appearance
   margin: 0;
 
   font: inherit;
@@ -61,7 +62,7 @@ input[type="checkbox"]::before {
   transform-origin: bottom left;
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em var(--form-control-color);
-  /* Windows High Contrast Mode */
+  // Windows High Contrast Mode
   background-color: CanvasText;
 }
 

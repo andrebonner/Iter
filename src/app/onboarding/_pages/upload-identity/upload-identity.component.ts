@@ -13,7 +13,7 @@ import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-upload-identity',
   templateUrl: './upload-identity.component.html',
-  styleUrls: ['./upload-identity.component.css'],
+  styleUrls: ['./upload-identity.component.scss'],
 })
 export class UploadIdentityComponent implements OnInit {
   onboarding$: Observable<Onboarding>;

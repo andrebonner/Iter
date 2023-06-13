@@ -13,7 +13,7 @@ import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-preferences',
   templateUrl: './preferences.component.html',
-  styleUrls: ['./preferences.component.css'],
+  styleUrls: ['./preferences.component.scss'],
 })
 export class PreferencesComponent implements OnInit {
   onboarding$: Observable<Onboarding>;
