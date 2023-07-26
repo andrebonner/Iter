@@ -1,5 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { setActiveStep, setCompletedStep } from '../actions/onboarding.actions';
+import {
+  clearOnboarding,
+  setActiveStep,
+  setCompletedStep,
+} from '../actions/onboarding.actions';
 
 export const initialState = {
   activeStep: 1,
@@ -16,5 +20,6 @@ export const onboardingReducer = createReducer(
     let steps = [...state.completedSteps, step];
 
     return (state = { ...state, completedSteps: steps });
-  })
+  }),
+  on(clearOnboarding, (state) => (state = initialState))
 );

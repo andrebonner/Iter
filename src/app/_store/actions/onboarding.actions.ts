@@ -9,3 +9,7 @@ export const setCompletedStep = createAction(
   '[Onboarding Component] Set Completed Step',
   props<{ step: number }>()
 );
+
+export const clearOnboarding = createAction(
+  '[Onboarding Component] Clear Onboarding'
+);
