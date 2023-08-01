@@ -12,7 +12,7 @@
     >
       <div class="flex flex-col w-11/12 mx-auto">
         <h1
-          class="text-2xl"
+          class="font-semibold text-2xl"
           (click)="
             showModalTemplate(
               'Terms and Conditions',
@@ -26,7 +26,7 @@
           class="flex flex-col md:flex-row w-full space-y-2 md:space-x-2 md:space-y-0 my-2"
         >
           <div class="w-full md:w-1/2">
-            <label>First Name</label>
+            <label class="text-lg">First Name</label>
             <input
               type="text"
               class="border-2 border-[#d6d6d6] rounded border-solid ring-0 focus:ring-0 p-2 text-lg w-full"
@@ -34,7 +34,7 @@
             />
           </div>
           <div class="w-full md:w-1/2">
-            <label>Last Name</label>
+            <label class="text-lg">Last Name</label>
             <input
               type="text"
               class="border-2 border-[#d6d6d6] rounded border-solid ring-0 focus:ring-0 p-2 text-lg w-full"
@@ -46,7 +46,7 @@
           class="flex flex-col md:flex-row w-full space-y-2 md:space-x-2 md:space-y-0 my-2"
         >
           <div class="w-full md:w-1/2">
-            <label>Email</label>
+            <label class="text-lg">Email</label>
             <input
               type="text"
               class="border-2 border-[#d6d6d6] rounded border-solid ring-0 focus:ring-0 p-2 text-lg w-full"
@@ -54,7 +54,7 @@
             />
           </div>
           <div class="w-full md:w-1/2">
-            <label>Phone</label>
+            <label class="text-lg">Phone</label>
             <input
               type="text"
               class="border-2 border-[#d6d6d6] rounded border-solid ring-0 focus:ring-0 p-2 text-lg w-full"
@@ -71,7 +71,7 @@
                 type="checkbox"
                 class="border-2 border-[#d6d6d6] rounded border-solid ring-0 focus:ring-0 p-2"
               />&nbsp;
-              <span class="px-2"
+              <span class="px-2 text-lg"
                 >I have read and accept
                 <a
                   href="javascript:void(0)"
@@ -87,7 +87,7 @@
             >
           </div>
           <div class="w-full md:w-1/2">
-            <p>
+            <p class="text-lg">
               Exisiting Account? <a routerLink="/login">Click here to login</a>
             </p>
           </div>

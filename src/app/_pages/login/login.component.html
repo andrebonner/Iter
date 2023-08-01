@@ -174,7 +174,12 @@
           <div
             class="card bg-white rounded py-4 border border-gray-300 border-solid"
           >
-            <form action="/otp">
+            <form
+              action="/otp"
+              method="post"
+              (ngSubmit)="doLogin(loginForm)"
+              #loginForm="ngForm"
+            >
               <div class="flex flex-col w-5/6 mx-auto">
                 <h1 class="text-3xl w-1/2">Log in</h1>
                 <p class="text-lg py-2">
@@ -182,6 +187,7 @@
                   access this site
                 </p>
                 <div class="w-full my-2">
+                  <label class="text-md my-1 sr-only">Username</label>
                   <input
                     type="text"
                     class="w-full border-gray-300 border-solid p-2"
@@ -189,6 +195,7 @@
                   />
                 </div>
                 <div class="w-full my-2">
+                  <label class="text-md my-1 sr-only">Password</label>
                   <input
                     type="password"
                     class="w-full border-gray-300 border-solid p-2"
@@ -197,12 +204,13 @@
                 </div>
                 <div class="w-full py-2">
                   <a
-                    routerLink="forgot-password"
+                    routerLink="/forgot-password"
                     class="block text-right text-[#e05d00]"
                     >Forgot Password?</a
                   >
                 </div>
                 <button
+                  type="submit"
                   class="text-center text-lg my-2 px-2 py-2 rounded bg-[#e05d00] shadow-none ring-0 text-white hover:text-white border-2 border-[#e05d00] hover:border-[#d14c11] border-solid font-semibold cursor-pointer"
                 >
                   Login
